@@ -203,7 +203,7 @@ std::string BLEAdvertisedDevice::toString() {
 	}
 	if (haveManufacturerData()) {
 		res += ", manufData: ";
-        for(int pos = 0; pos < m_manufacturerDataLength; pos++)
+        for(uint8_t pos = 0; pos < m_manufacturerDataLength; pos++)
         {
             char val[4];
             snprintf(val, sizeof(val), "%02X", m_manufacturerData[pos]);
@@ -212,7 +212,7 @@ std::string BLEAdvertisedDevice::toString() {
 	}
 	if (haveServiceData()) {
 		res += ", serviceData: ";
-        for(int pos = 0; pos < m_serviceDataLength; pos++)
+        for(uint8_t pos = 0; pos < m_serviceDataLength; pos++)
         {
             char val[4];
             snprintf(val, sizeof(val), "%02X", m_serviceData[pos]);

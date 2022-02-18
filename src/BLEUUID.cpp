@@ -35,7 +35,7 @@ std::string BLEUUID::toString() {
 
 	if (m_uuid.len == UUID_LEN_32) {  // If the UUID is 32bit, pad correctly.
 		char hex[9];
-		snprintf(hex, sizeof(hex), "%08x", m_uuid.uuid.uuid32);
+		snprintf(hex, sizeof(hex), "%08x", (unsigned int)m_uuid.uuid.uuid32);
 		return std::string(hex) + "-0000-1000-8000-00805f9b34fb";
 	} // End 32bit UUID
 
@@ -263,7 +263,7 @@ BLEUUID::BLEUUID(std::string value) {
 	if (value.length() == 4) {
 		m_uuid.len         = UUID_LEN_16;
 		m_uuid.uuid.uuid16 = 0;
-		for(int i=0;i<value.length();){
+		for(size_t i=0;i<value.length();){
 			uint8_t MSB = value.c_str()[i];
 			uint8_t LSB = value.c_str()[i+1];
 			
@@ -276,7 +276,7 @@ BLEUUID::BLEUUID(std::string value) {
 	else if (value.length() == 8) {
 		m_uuid.len         = UUID_LEN_32;
 		m_uuid.uuid.uuid32 = 0;
-		for(int i=0;i<value.length();){
+		for(size_t i=0;i<value.length();){
 			uint8_t MSB = value.c_str()[i];
 			uint8_t LSB = value.c_str()[i+1];
 			
@@ -295,7 +295,7 @@ BLEUUID::BLEUUID(std::string value) {
 		// UUID format.
 		m_uuid.len = UUID_LEN_128;
 		int n = 0;
-		for(int i=0;i<value.length();){
+		for(size_t i=0;i<value.length();){
 			if(value.c_str()[i] == '-')
 				i++;
 			uint8_t MSB = value.c_str()[i];

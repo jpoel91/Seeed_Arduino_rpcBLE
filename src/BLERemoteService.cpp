@@ -139,7 +139,7 @@ std::map<uint16_t, BLERemoteCharacteristic*>* BLERemoteService::getCharacteristi
  * @brief This function is designed to get characteristics map when we have multiple characteristics with the same UUID
  */
 void BLERemoteService::getCharacteristics(std::map<uint16_t, BLERemoteCharacteristic*>* pCharacteristicMap) {
-	pCharacteristicMap = &m_characteristicMapByHandle;
+	// pCharacteristicMap = &m_characteristicMapByHandle;
 }  // Get the characteristics map.
 
 
@@ -219,7 +219,9 @@ T_APP_RESULT BLERemoteService::clientCallbackDefault(
 			{
 			BLERemoteService::m_semaphoregetchaEvt.give(0);
 			break;
-			}						
+			}	
+			default:
+				break;					
 		}
 		
         break;
@@ -233,8 +235,8 @@ T_APP_RESULT BLERemoteService::clientCallbackDefault(
       
         case DISC_RESULT_SRV_DATA:
         {
-            T_GATT_SERVICE_BY_UUID_ELEM *disc_data = (T_GATT_SERVICE_BY_UUID_ELEM *)&(p_ble_client_cb_data->cb_content.discov_result.result.srv_disc_data);
-            RPC_DEBUG("start_handle:%d, end handle:%d\n\r", disc_data->att_handle, disc_data->end_group_handle);
+            // T_GATT_SERVICE_BY_UUID_ELEM *disc_data = (T_GATT_SERVICE_BY_UUID_ELEM *)&(p_ble_client_cb_data->cb_content.discov_result.result.srv_disc_data);
+            // RPC_DEBUG("start_handle:%d, end handle:%d\n\r", disc_data->att_handle, disc_data->end_group_handle);
             break;
         }
         case DISC_RESULT_CHAR_UUID16:

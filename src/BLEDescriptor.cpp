@@ -21,7 +21,7 @@
 BLEDescriptor::BLEDescriptor(BLEUUID uuid, uint16_t flags, uint32_t permissions, uint16_t max_len)
 {
 	m_attr_len = 0;				 // Initial length is 0.
-	m_handle = NULL_HANDLE;		 // Handle is initially unknown.
+	m_handle = 0xff;		 // Handle is initially unknown.
 	m_pCharacteristic = nullptr; // No initial characteristic.
 	m_pCallback = nullptr;		 // No initial callback
 

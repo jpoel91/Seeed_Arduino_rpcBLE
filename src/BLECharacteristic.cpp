@@ -36,7 +36,7 @@ BLECharacteristic::BLECharacteristic(const char *uuid, uint32_t properties) : BL
 BLECharacteristic::BLECharacteristic(BLEUUID uuid, uint32_t properties)
 {
 	m_bleUUID = uuid;
-	m_handle = NULL_HANDLE;
+	m_handle = 0xff;
 	m_properties = (uint8_t)0;
 	m_pCallbacks = &defaultCallback;
 	m_permissions = 0;

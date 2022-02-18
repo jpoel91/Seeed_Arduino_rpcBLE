@@ -66,7 +66,7 @@ std::string BLEEddystoneTLM::toString() {
   out += ".0 °C\n";
 
   out += "Adv. Count ";
-  snprintf(val, sizeof(val), "%d", ENDIAN_CHANGE_U32(m_eddystoneData.advCount));
+  snprintf(val, sizeof(val), "%lu", ENDIAN_CHANGE_U32(m_eddystoneData.advCount));
   out += val;
   out += "\n";
 

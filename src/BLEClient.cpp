@@ -340,8 +340,8 @@ T_APP_RESULT BLEClient::clientCallbackDefault(T_CLIENT_ID client_id, uint8_t con
         }
         case DISC_RESULT_SRV_DATA:
         {
-            T_GATT_SERVICE_BY_UUID_ELEM *disc_data = (T_GATT_SERVICE_BY_UUID_ELEM *)&(p_ble_client_cb_data->cb_content.discov_result.result.srv_disc_data);
-            RPC_DEBUG("start_handle:%d, end handle:%d\n\r", disc_data->att_handle, disc_data->end_group_handle);
+            // T_GATT_SERVICE_BY_UUID_ELEM *disc_data = (T_GATT_SERVICE_BY_UUID_ELEM *)&(p_ble_client_cb_data->cb_content.discov_result.result.srv_disc_data);
+            // RPC_DEBUG("start_handle:%d, end handle:%d\n\r", disc_data->att_handle, disc_data->end_group_handle);
             break;
         }  
      
