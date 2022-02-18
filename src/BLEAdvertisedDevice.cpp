@@ -191,7 +191,7 @@ std::string BLEAdvertisedDevice::toString() {
 		res += val;
 	}
 	if (haveServiceUUID()) {
-		for (int i=0; i < m_serviceUUIDs.size(); i++) {
+		for (size_t i=0; i < m_serviceUUIDs.size(); i++) {
 		    res += ", serviceUUID: " + getServiceUUID(i).toString();
 		}
 	}

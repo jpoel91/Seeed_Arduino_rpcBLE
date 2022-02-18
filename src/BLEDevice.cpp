@@ -367,7 +367,7 @@ void BLEDevice::removePeerDevice(uint16_t conn_id, bool _client)
     T_SERVER_ID service_id,
     void *p_data)
 {
-    T_APP_RESULT result = APP_RESULT_SUCCESS;
+    // T_APP_RESULT result = APP_RESULT_SUCCESS;
     if (BLEDevice::m_pServer != nullptr)
     {
         RPC_DEBUG("into device :: gattServerEventHandler\n\r");

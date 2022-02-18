@@ -160,7 +160,7 @@ BLEService* BLEServer::getServiceByUUID(BLEUUID uuid) {
  * Probably can be used in ANCS for iPhone
  */
 bool BLEServer::connect(BLEAddress address) {
-
+	return true;
 } // connect
 
 void BLEServer::disconnect(uint16_t connId) {

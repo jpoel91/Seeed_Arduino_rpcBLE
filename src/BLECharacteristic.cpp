@@ -429,14 +429,15 @@ void BLECharacteristic::notify(bool is_notification)
 	}
 	for (auto &myPair : getService()->getServer()->getPeerDevices(false)) {
 		uint16_t _mtu = (myPair.second.mtu);
-		if (m_value.getValue().length() > _mtu - 3) {
+		if ((uint16_t)m_value.getValue().length() > _mtu - 3) {
 			RPC_DEBUG("- Truncating to %d bytes (maximum notify size)", _mtu - 3);
 		}
 
 		size_t length = m_value.getValue().length();
-		if(!is_notification) // is indication
+		if(!is_notification) {// is indication
 			m_semaphoreConfEvt.take("indicate");
-			bool errRc = server_send_data(0, getService()->getHandle(), getHandle(), (uint8_t *)m_value.getData(), (uint16_t)length, GATT_PDU_TYPE_ANY);
+		}
+		bool errRc = server_send_data(0, getService()->getHandle(), getHandle(), (uint8_t *)m_value.getData(), (uint16_t)length, GATT_PDU_TYPE_ANY);
 		if (errRc != true) {
 			m_semaphoreConfEvt.give();
 			m_pCallbacks->onStatus(this, BLECharacteristicCallbacks::Status::ERROR_GATT, errRc);   // Invoke the notify callback.

@@ -72,19 +72,19 @@ std::string BLEEddystoneTLM::toString() {
 
   out += "Time ";
 
-  snprintf(val, sizeof(val), "%04d", rawsec / 864000);
+  snprintf(val, sizeof(val), "%04lu", rawsec / 864000);
   out += val;
   out += ".";
 
-  snprintf(val, sizeof(val), "%02d", (rawsec / 36000) % 24);
+  snprintf(val, sizeof(val), "%02lu", (rawsec / 36000) % 24);
   out += val;
   out += ":";
 
-  snprintf(val, sizeof(val), "%02d", (rawsec / 600) % 60);
+  snprintf(val, sizeof(val), "%02lu", (rawsec / 600) % 60);
   out += val;
   out += ":";
 
-  snprintf(val, sizeof(val), "%02d", (rawsec / 10) % 60);
+  snprintf(val, sizeof(val), "%02lu", (rawsec / 10) % 60);
   out += val;
   out += "\n";
 

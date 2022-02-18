@@ -151,7 +151,7 @@ std::string BLEFreeRTOS::Semaphore::toString()
 {
 	char hex[9];
 	std::string res = "name: " + m_name + " (0x";
-	snprintf(hex, sizeof(hex), "%08x", (uint32_t)m_semaphore);
+	snprintf(hex, sizeof(hex), "%08x", (unsigned int)m_semaphore);
 	res += hex;
 	res += "), owner: " + m_owner;
 	return res;

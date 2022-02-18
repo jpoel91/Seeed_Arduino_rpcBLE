@@ -103,6 +103,7 @@ bool BLEClient::connect(BLEAddress address, T_GAP_REMOTE_ADDR_TYPE type) {
 	uint8_t conn_id = 0xff;
 	le_get_conn_id((uint8_t *)address.getNative(), GAP_REMOTE_ADDR_LE_PUBLIC, &conn_id);
 	m_conn_id = conn_id;		
+	return true;
 } // connect
 
 uint8_t BLEClient::getGattcIf() {
@@ -294,6 +295,8 @@ T_APP_RESULT BLEClient::clientCallbackDefault(T_CLIENT_ID client_id, uint8_t con
 			m_semaphoreSearchCmplEvt.give(0); 
 			break;
 			}		
+			default:
+				break;
 		}
 		
         break;
