@@ -46,7 +46,7 @@ T_GAP_REMOTE_ADDR_TYPE BLEAdvertisedDevice::getAddressType() {
  * @return Return true if service is advertised
  */
 bool BLEAdvertisedDevice::isAdvertisingService(BLEUUID uuid){
-	for (int i = 0; i < m_serviceUUIDs.size(); i++) {
+	for (size_t i = 0; i < m_serviceUUIDs.size(); i++) {
 		if (m_serviceUUIDs[i].equals(uuid)) return true;
 	}
 	return false;   
