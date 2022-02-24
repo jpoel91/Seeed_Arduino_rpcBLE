@@ -184,41 +184,41 @@ BLEScan* BLEAdvertisedDevice::getScan() {
  */
 std::string BLEAdvertisedDevice::toString() {
 	std::string res = "Name: " + getName() + ", Address: " + getAddress().toString();
-	if (haveAppearance()) {
-		char val[6];
-		snprintf(val, sizeof(val), "%d", getAppearance());
-		res += ", appearance: ";
-		res += val;
-	}
-	if (haveServiceUUID()) {
-		for (size_t i=0; i < m_serviceUUIDs.size(); i++) {
-		    res += ", serviceUUID: " + getServiceUUID(i).toString();
-		}
-	}
-	if (haveTXPower()) {
-		char val[4];
-		snprintf(val, sizeof(val), "%d", getTXPower());
-		res += ", txPower: ";
-		res += val;
-	}
-	if (haveManufacturerData()) {
-		res += ", manufData: ";
-        for(uint8_t pos = 0; pos < m_manufacturerDataLength; pos++)
-        {
-            char val[4];
-            snprintf(val, sizeof(val), "%02X", m_manufacturerData[pos]);
-            res += val;
-        }
-	}
-	if (haveServiceData()) {
-		res += ", serviceData: ";
-        for(uint8_t pos = 0; pos < m_serviceDataLength; pos++)
-        {
-            char val[4];
-            snprintf(val, sizeof(val), "%02X", m_serviceData[pos]);
-            res += val;
-        }
-	}
+	// if (haveAppearance()) {
+	// 	char val[6];
+	// 	snprintf(val, sizeof(val), "%d", getAppearance());
+	// 	res += ", appearance: ";
+	// 	res += val;
+	// }
+	// if (haveServiceUUID()) {
+	// 	for (size_t i=0; i < m_serviceUUIDs.size(); i++) {
+	// 	    res += ", serviceUUID: " + getServiceUUID(i).toString();
+	// 	}
+	// }
+	// if (haveTXPower()) {
+	// 	char val[4];
+	// 	snprintf(val, sizeof(val), "%d", getTXPower());
+	// 	res += ", txPower: ";
+	// 	res += val;
+	// }
+	// if (haveManufacturerData()) {
+	// 	res += ", manufData: ";
+    //     for(uint8_t pos = 0; pos < m_manufacturerDataLength; pos++)
+    //     {
+    //         char val[4];
+    //         snprintf(val, sizeof(val), "%02X", m_manufacturerData[pos]);
+    //         res += val;
+    //     }
+	// }
+	// if (haveServiceData()) {
+	// 	res += ", serviceData: ";
+    //     for(uint8_t pos = 0; pos < m_serviceDataLength; pos++)
+    //     {
+    //         char val[4];
+    //         snprintf(val, sizeof(val), "%02X", m_serviceData[pos]);
+    //         res += val;
+    //     }
+	// }
 	return res;
 } // toString
 
